@@ -169,15 +169,7 @@ class Connection extends BaseConnection
      */
     protected function getDsnString(array $config)
     {
-        $dsn_string = $config['dsn'];
-
-        if (Str::contains($dsn_string, 'mongodb://')) {
-            $dsn_string = Str::replaceFirst('mongodb://', '', $dsn_string);
-        }
-
-        $dsn_string = rawurlencode($dsn_string);
-
-        return "mongodb://{$dsn_string}";
+        return $config['dsn'];
     }
 
     /**
